@@ -12,9 +12,9 @@ public class PlayerCharacterMovement : MonoBehaviour
     public bool IsSprint => _isSprint;
 
 
-    [SerializeField] private float _walkSpeed = 2f;
+    [SerializeField] private float _walkSpeed = 1f;
     [SerializeField] private float _sprintSpeed = 5f;
-    [SerializeField] private float _acceleration = 0.5f;
+    [SerializeField] private float _acceleration = 1f;
     [SerializeField] private CharacterController _charactercontroller;
     [SerializeField] private float _gravityScale = 1;
 
