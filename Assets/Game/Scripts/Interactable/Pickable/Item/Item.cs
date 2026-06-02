@@ -1,9 +1,14 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Item : MonoBehaviour, IInteractable, IPickable
 {
-    [SerializeField] public string _name;
-    public string Name => _name;
+    [SerializeField] private ItemData _data;
+
+    public UnityEvent OnItemPicked;
+    public string Name => _data.Name;
+
+    [ContextMenu("Interact Item")]
 
     public void Interact()
     {
@@ -12,6 +17,7 @@ public class Item : MonoBehaviour, IInteractable, IPickable
 
     public void PickUp()
     {
-        
+        OnItemPicked?.Invoke();
+        DestroyImmediate(gameObject);
     }
 }
