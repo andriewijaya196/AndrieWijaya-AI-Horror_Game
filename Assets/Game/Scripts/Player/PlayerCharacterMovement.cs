@@ -18,9 +18,9 @@ public class PlayerCharacterMovement : MonoBehaviour
     [SerializeField] private CharacterController _charactercontroller;
     [SerializeField] private float _gravityScale = 1;
 
-    public void SetMovementDirection(Vector2 inputDirection)
+    private void Awake()
     {
-        _movementDirection = new Vector3(inputDirection.x, 0, inputDirection.y);
+        _currentSpeed = _walkSpeed;
     }
 
     private void Start()
@@ -28,22 +28,8 @@ public class PlayerCharacterMovement : MonoBehaviour
         _charactercontroller = GetComponent<CharacterController>();
     }
 
-    private void Awake()
-    {
-        _currentSpeed = _walkSpeed;
-    }
-
     public void Move()
     {
-        if (_movementDirection.magnitude >= 0.01)
-        {
-            _velocityXZ = _movementDirection * _currentSpeed;
-        }
-        else
-        {
-            _velocityXZ = Vector3.zero;
-        }
-
         CalculateVelocityXZ();
 
         CalculateVelocityY();
@@ -52,7 +38,7 @@ public class PlayerCharacterMovement : MonoBehaviour
 
         Vector3 velocity = new Vector3( _velocityXZ.x, _velocityY, _velocityXZ.z);
 
-        _charactercontroller.Move(velocity * Time.deltaTime);
+        _charactercontroller.Move(_velocityXZ * Time.deltaTime);
     }
     
     private void Update()
@@ -60,6 +46,11 @@ public class PlayerCharacterMovement : MonoBehaviour
         CheckIsGrounded();
         ResetVelocityY();
         Move();
+    }
+
+    public void SetMovementDirection(Vector2 inputDirection)
+    {
+        _movementDirection = new Vector3(inputDirection.x, 0, inputDirection.y);
     }
 
     private void CalculateAcceleration()
@@ -87,6 +78,17 @@ public class PlayerCharacterMovement : MonoBehaviour
         Transform cameraTransform = Camera.main.transform;
         Vector3 xDirection = _movementDirection.x * cameraTransform.right;
         Vector3 zDirection = _movementDirection.z * cameraTransform.forward;
+        Vector3 direction = xDirection + zDirection;
+        direction.y = 0;
+
+        if (_movementDirection.magnitude > 0.01)
+        {
+            _velocityXZ = direction.normalized * _currentSpeed;
+        }
+        else
+        {
+            _velocityXZ = Vector3.zero;
+        }
     }
 
     private void CalculateVelocityY()

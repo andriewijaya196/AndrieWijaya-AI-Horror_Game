@@ -14,17 +14,29 @@ public abstract class Door : MonoBehaviour, IInteractable
     public UnityEvent OnDoorOpen;
     public UnityEvent OnDoorClose;  
     public string Name => _name;
-    [ContextMenu("Interact Door")]
-
+    
+    [ContextMenu("Interact Door")]    
     public void Interact(PlayerCharacter character)
     {
-        if(_isOpen == true)
+        if (_isLocked == true)
         {
-            Close();
+            bool hasKey = character.Inventory.CheckItem(_keyID);
+            if (hasKey == true)
+            {
+                _isLocked = false;
+                Open();
+            }
         }
         else
         {
-            Open();
+            if(_isOpen == true)
+            {
+                Close();
+            }
+            else
+            {
+                Open();
+            }
         }
     }
 

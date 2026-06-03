@@ -6,8 +6,42 @@ public class InteractDetector : MonoBehaviour
     [SerializeField] private float _detectorDistance;
     [SerializeField] private Vector3 _detectorBoxSize = Vector3.one;
     [SerializeField] private LayerMask _interactableLayer;
-    private GameObject _detectedInteractable;
+    private IInteractable _detectedInteractable;
     private bool _isInteracting;
+
+    private void Update()
+    {
+        UpdateDetection();
+    }
+    private void UpdateDetection()
+    {
+        if (_isInteracting)
+        {
+            _isInteracting = false;
+            return;
+        }
+        Transform cameraTransform = Camera.main.transform;
+        bool isDetectingInteractable = Physics.BoxCast(cameraTransform.position, _detectorBoxSize * 0.5f, cameraTransform.forward, out RaycastHit hit, Quaternion.identity, _detectorDistance, _interactableLayer);
+    
+        if (isDetectingInteractable)
+        {
+            IInteractable interactable = hit.collider.gameObject.GetComponent<IInteractable>();
+            if (interactable != null)
+            {
+                _detectedInteractable = interactable;
+            }        
+        }
+    }
+
+    public void Interact()
+    {
+        if (_detectedInteractable != null)
+        {
+            _detectedInteractable.Interact(_owner);
+            _detectedInteractable = null;
+            _isInteracting = true;  
+        }
+    }
     
     private void OnDrawGizmos()
     {
