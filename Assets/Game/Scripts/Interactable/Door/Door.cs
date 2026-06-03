@@ -16,7 +16,7 @@ public abstract class Door : MonoBehaviour, IInteractable
     public string Name => _name;
     [ContextMenu("Interact Door")]
 
-    public void Interact()
+    public void Interact(PlayerCharacter character)
     {
         if(_isOpen == true)
         {

@@ -52,12 +52,15 @@
     <Compile Include="Assets/Game/Scripts/Interactable/Pickable/Item/Item.cs" />
     <Compile Include="Assets/Game/Scripts/Interactable/IInteractable.cs" />
     <Compile Include="Assets/Config/TutorialInfo/Scripts/Readme.cs" />
+    <Compile Include="Assets/Game/Scripts/inventory/InventoryManager.cs" />
     <Compile Include="Assets/Game/Scripts/Interactable/Door/SlidingDoor.cs" />
     <Compile Include="Assets/Game/Scripts/Interactable/Pickable/IPickable.cs" />
     <Compile Include="Assets/Game/Scripts/Interactable/Door/RotatingDoor.cs" />
     <Compile Include="Assets/Game/Scripts/Player/PlayerCharacterStamina.cs" />
+    <Compile Include="Assets/Game/Scripts/Player/PlayerCharacter.cs" />
     <Compile Include="Assets/Game/Scripts/Interactable/Door/Door.cs" />
     <Compile Include="Assets/Game/Input/GameInputAction.cs" />
+    <Compile Include="Assets/Game/Scripts/Interactable/InteractDetector.cs" />
     <Compile Include="Assets/Game/Scripts/Player/PlayerCharacterMovement.cs" />
     <Compile Include="Assets/Game/Scripts/Interactable/Pickable/Item/ItemData.cs" />
     <Compile Include="Assets/Game/Scripts/Input/InputManager.cs" />
