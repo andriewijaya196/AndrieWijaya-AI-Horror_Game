@@ -1,4 +1,5 @@
 using System;
+using UnityEditor.Rendering.LookDev;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
@@ -9,6 +10,7 @@ public class InputManager : MonoBehaviour, IPlayerActions
     public UnityEvent<Vector2> OnMoveInput;
     public UnityEvent<bool> OnSprintInput;
     public UnityEvent OnInteractInput;
+    public UnityEvent OnFlashlightInput;
 
     private void Awake()
     {
@@ -41,6 +43,14 @@ public class InputManager : MonoBehaviour, IPlayerActions
         if (context.canceled)
         {
             OnSprintInput?.Invoke(false);
+        }
+    }
+
+    public void OnFlashlight(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            OnFlashlightInput?.Invoke();
         }
     }
 

@@ -10,6 +10,7 @@ public class PlayerCharacterMovement : MonoBehaviour
     private bool _isSprint;
     private float _currentSpeed = 1f;
     public bool IsSprint => _isSprint;
+    public bool Enabled { get; private set;} = true;
 
 
     [SerializeField] private float _walkSpeed = 1f;
@@ -30,15 +31,19 @@ public class PlayerCharacterMovement : MonoBehaviour
 
     public void Move()
     {
-        CalculateVelocityXZ();
+        if (Enabled == true)
+        {
+            CalculateVelocityXZ();
 
-        CalculateVelocityY();
+            CalculateVelocityY();
 
-        CalculateAcceleration();
+            CalculateAcceleration();
 
-        Vector3 velocity = new Vector3( _velocityXZ.x, _velocityY, _velocityXZ.z);
+            Vector3 velocity = new Vector3( _velocityXZ.x, _velocityY, _velocityXZ.z);
 
-        _charactercontroller.Move(_velocityXZ * Time.deltaTime);
+            _charactercontroller.Move(_velocityXZ * Time.deltaTime);
+        }
+        
     }
     
     private void Update()
@@ -46,6 +51,11 @@ public class PlayerCharacterMovement : MonoBehaviour
         CheckIsGrounded();
         ResetVelocityY();
         Move();
+    }
+
+    public void SetEnabled(bool isEnabled)
+    {
+        Enabled = isEnabled;
     }
 
     public void SetMovementDirection(Vector2 inputDirection)
