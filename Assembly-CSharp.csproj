@@ -51,13 +51,19 @@
     <Analyzer Include="/Users/andrie/Documents/GitHub/AndrieWijaya-AI-Horror_Game/Library/PackageCache/com.unity.dt.app-ui@5d6dc8bfd8d9/Runtime/MVVM/SourceGenerators/netstandard2.0/MVVMSourceGenerators.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets/Game/Scripts/Ghost/Action/ValidateNavMeshAction.cs" />
+    <Compile Include="Assets/Game/Scripts/Ghost/Action/SetTargetIsHidingAction.cs" />
     <Compile Include="Assets/Game/Scripts/Interactable/Pickable/Item/Item.cs" />
     <Compile Include="Assets/Game/Scripts/Interactable/IInteractable.cs" />
+    <Compile Include="Assets/Game/Scripts/Ghost/Action/SetLastSeenPositionAction.cs" />
     <Compile Include="Assets/Game/Scripts/Interactable/Pickable/Item/Battery.cs" />
+    <Compile Include="Assets/Game/Scripts/Ghost/Action/DespawnAIAction.cs" />
     <Compile Include="Assets/Game/Scripts/Ghost/AI/SightPerception.cs" />
+    <Compile Include="Assets/Game/Scripts/Ghost/AI/GhostSpawner.cs" />
     <Compile Include="Assets/Config/TutorialInfo/Scripts/Readme.cs" />
     <Compile Include="Assets/Game/Scripts/inventory/InventoryManager.cs" />
     <Compile Include="Assets/Game/Scripts/Interactable/Door/SlidingDoor.cs" />
+    <Compile Include="Assets/Game/Scripts/Ghost/Action/SetCanSeeTargetAction.cs" />
     <Compile Include="Assets/Game/Scripts/Interactable/Pickable/IPickable.cs" />
     <Compile Include="Assets/Game/Scripts/Interactable/Door/RotatingDoor.cs" />
     <Compile Include="Assets/Game/Scripts/Player/PlayerCharacterStamina.cs" />
@@ -596,16 +602,16 @@
       <HintPath>Library/PackageCache/com.unity.visualscripting@8bed5ad90189/Runtime/VisualScripting.Flow/Dependencies/NCalc/Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>Library/PackageCache/com.unity.nuget.newtonsoft-json@74deb55db2a0/Runtime/Newtonsoft.Json.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Mono.Cecil">
       <HintPath>Library/PackageCache/com.unity.nuget.mono-cecil@ecb9724e46ff/Mono.Cecil.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Runtime.CompilerServices.Unsafe">
       <HintPath>Library/PackageCache/com.unity.collections@12999e356c23/Unity.Collections.Tests/System.Runtime.CompilerServices.Unsafe/System.Runtime.CompilerServices.Unsafe.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>Library/PackageCache/com.unity.nuget.newtonsoft-json@74deb55db2a0/Runtime/Newtonsoft.Json.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEditor.iOS.Extensions.Xcode">
@@ -1128,12 +1134,12 @@
       <HintPath>Library/ScriptAssemblies/Unity.AppUI.MVVM.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Unity.AI.Navigation">
-      <HintPath>Library/ScriptAssemblies/Unity.AI.Navigation.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="Unity.AppUI.Navigation.Editor">
       <HintPath>Library/ScriptAssemblies/Unity.AppUI.Navigation.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.AI.Navigation">
+      <HintPath>Library/ScriptAssemblies/Unity.AI.Navigation.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.RenderPipeline.Universal.ShaderLibrary">
@@ -1240,6 +1246,10 @@
       <HintPath>Library/ScriptAssemblies/Unity.AppUI.Undo.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Unity.Behavior.GraphFramework">
+      <HintPath>Library/ScriptAssemblies/Unity.Behavior.GraphFramework.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Unity.RenderPipelines.Universal.Editor">
       <HintPath>Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Editor.dll</HintPath>
       <Private>False</Private>
@@ -1254,10 +1264,6 @@
     </Reference>
     <Reference Include="Unity.AppUI.Navigation">
       <HintPath>Library/ScriptAssemblies/Unity.AppUI.Navigation.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.Behavior.GraphFramework">
-      <HintPath>Library/ScriptAssemblies/Unity.Behavior.GraphFramework.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.Collections.Editor">
