@@ -93,11 +93,11 @@ public class HidingCloset : MonoBehaviour, IInteractable
         _hidingPlayer.Movement.SetEnabled(true);
         _hidingPlayer.InteractDetector.SetEnabled(true);
         _hidingPlayer.SetIsHiding(false);
+
+        _hidingPlayer.input.OnInteractInput.RemoveListener(StopHiding);
         _hidingPlayer = null;
 
         yield return new WaitWhile(() => _door.IsAnimating);
-        
-        _hidingPlayer.input.OnInteractInput.RemoveListener(StopHiding);
     }    
 
 }

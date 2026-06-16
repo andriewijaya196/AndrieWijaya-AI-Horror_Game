@@ -123,6 +123,10 @@ public class PlayerCharacterMovement : MonoBehaviour
     public void SetSprint(bool isSprint)
     {
         _isSprint = isSprint;
+        if (isSprint == true)
+        {
+            HUDManager.Instance.StaminaUI.SetVisible(true);
+        }
     }
 
 }

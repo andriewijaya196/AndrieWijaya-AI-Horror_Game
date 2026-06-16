@@ -54,6 +54,7 @@
     <Compile Include="Assets/Game/Scripts/Ghost/Action/ValidateNavMeshAction.cs" />
     <Compile Include="Assets/Game/Scripts/GameEvent/GameEventManager.cs" />
     <Compile Include="Assets/Game/Scripts/Ghost/Action/SetTargetIsHidingAction.cs" />
+    <Compile Include="Assets/Game/Scripts/UI/BatteryLevelUI.cs" />
     <Compile Include="Assets/Game/Scripts/Interactable/Pickable/Item/Item.cs" />
     <Compile Include="Assets/Game/Scripts/Interactable/IInteractable.cs" />
     <Compile Include="Assets/Game/Scripts/Ghost/Action/SetLastSeenPositionAction.cs" />
@@ -64,6 +65,7 @@
     <Compile Include="Assets/Config/TutorialInfo/Scripts/Readme.cs" />
     <Compile Include="Assets/Game/Scripts/inventory/InventoryManager.cs" />
     <Compile Include="Assets/Game/Scripts/Interactable/Door/SlidingDoor.cs" />
+    <Compile Include="Assets/Game/Scripts/UI/StaminaUI.cs" />
     <Compile Include="Assets/Game/Scripts/GameEvent/GameEventBase.cs" />
     <Compile Include="Assets/Game/Scripts/Ghost/Action/SetCanSeeTargetAction.cs" />
     <Compile Include="Assets/Game/Scripts/Interactable/Pickable/IPickable.cs" />
@@ -84,6 +86,7 @@
     <Compile Include="Assets/Game/Scripts/Input/InputManager.cs" />
     <Compile Include="Assets/Game/Scripts/Ghost/AI/Action/WaitUntilReachDestinationAction.cs" />
     <Compile Include="Assets/Game/Scripts/Interactable/HidingCloset.cs" />
+    <Compile Include="Assets/Game/Scripts/UI/HUDManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />

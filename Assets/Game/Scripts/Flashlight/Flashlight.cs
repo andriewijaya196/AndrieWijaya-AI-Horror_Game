@@ -32,6 +32,12 @@ public class Flashlight : MonoBehaviour
         _batteryLevel = _initialbatteryLevel;
     }
 
+    private void Start()
+    {
+        _batteryLevel = _initialbatteryLevel;
+        HUDManager.Instance.BatteryLevelUI.UpdateBatteryUI(_batteryLevel, _initialbatteryLevel);
+    }
+
     private void Update()
     {
         UpdateFlashlightRotation();
@@ -41,6 +47,12 @@ public class Flashlight : MonoBehaviour
     private void UpdateFlashlightRotation()
     {
         _light.transform.rotation = Camera.main.transform.rotation;
+    }
+
+    public virtual void RefillBatteryLevel()
+    {
+        _batteryLevel = _initialbatteryLevel;
+        HUDManager.Instance.BatteryLevelUI.UpdateBatteryUI(_batteryLevel, _initialbatteryLevel);
     }
 
     private void UpdateBatteryLevel()
@@ -56,12 +68,7 @@ public class Flashlight : MonoBehaviour
                 _batteryLevel = 0;
                 _light.enabled = false;
             }
+            HUDManager.Instance.BatteryLevelUI.UpdateBatteryUI(_batteryLevel, _initialbatteryLevel);
         }
-    }
-
-    public virtual void RefillBatteryLevel()
-    {
-        _batteryLevel = _initialbatteryLevel;
-    }
-    
+    }    
 }
