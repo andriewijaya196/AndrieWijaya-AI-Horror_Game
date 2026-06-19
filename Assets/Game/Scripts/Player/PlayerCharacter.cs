@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerCharacter : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class PlayerCharacter : MonoBehaviour
     [SerializeField] private CameraManager _camera;
     [SerializeField] private InputManager _input;
     [SerializeField] private Flashlight _flashlight;
+
+    public UnityEvent OnDeath;
 
     public PlayerCharacterMovement Movement => _movement;
     public PlayerCharacterStamina Stamina => _stamina;
@@ -26,7 +29,10 @@ public class PlayerCharacter : MonoBehaviour
     
     public void Death()
     {
-        Debug.Log("LOSE!");
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+        OnDeath?.Invoke();
+
     }
 
      public void Awake()

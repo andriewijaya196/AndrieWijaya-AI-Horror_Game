@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets/Game/Scripts/Ghost/Action/ValidateNavMeshAction.cs" />
+    <Compile Include="Assets/Game/Scripts/Cursor/DisplayCursor.cs" />
     <Compile Include="Assets/Game/Scripts/GameEvent/GameEventManager.cs" />
     <Compile Include="Assets/Game/Scripts/Ghost/Action/SetTargetIsHidingAction.cs" />
     <Compile Include="Assets/Game/Scripts/UI/BatteryLevelUI.cs" />
@@ -59,6 +60,7 @@
     <Compile Include="Assets/Game/Scripts/Interactable/IInteractable.cs" />
     <Compile Include="Assets/Game/Scripts/Ghost/Action/SetLastSeenPositionAction.cs" />
     <Compile Include="Assets/Game/Scripts/Interactable/Pickable/Item/Battery.cs" />
+    <Compile Include="Assets/Game/Scripts/SceneLoader/SceneLoader.cs" />
     <Compile Include="Assets/Game/Scripts/Ghost/Action/DespawnAIAction.cs" />
     <Compile Include="Assets/Game/Scripts/Ghost/AI/SightPerception.cs" />
     <Compile Include="Assets/Game/Scripts/Ghost/AI/GhostSpawner.cs" />
