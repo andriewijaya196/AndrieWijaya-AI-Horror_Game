@@ -72,12 +72,14 @@
     <Compile Include="Assets/Game/Scripts/GameEvent/DropObjectGameEvent.cs" />
     <Compile Include="Assets/Game/Scripts/Interactable/Door/RotatingDoor.cs" />
     <Compile Include="Assets/Game/Scripts/GameEvent/TriggerBox.cs" />
+    <Compile Include="Assets/Game/Scripts/UI/CrosshairUI.cs" />
     <Compile Include="Assets/Game/Scripts/Player/PlayerCharacterStamina.cs" />
     <Compile Include="Assets/Game/Scripts/Player/PlayerCharacter.cs" />
     <Compile Include="Assets/Game/Scripts/Flashlight/Flashlight.cs" />
     <Compile Include="Assets/Game/Scripts/Interactable/Door/Door.cs" />
     <Compile Include="Assets/Game/Scripts/CameraManager.cs" />
     <Compile Include="Assets/Game/Input/GameInputAction.cs" />
+    <Compile Include="Assets/Game/Scripts/UI/InteractionInfoUi.cs" />
     <Compile Include="Assets/Game/Scripts/Interactable/InteractDetector.cs" />
     <Compile Include="Assets/Game/Scripts/Player/PlayerCharacterMovement.cs" />
     <Compile Include="Assets/Game/Scripts/GameEvent/ShowGhostGameEvent.cs" />

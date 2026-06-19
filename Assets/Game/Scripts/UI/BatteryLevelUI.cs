@@ -19,14 +19,18 @@ public class BatteryLevelUI : MonoBehaviour
     {
         float fillAmount = value / maxValue;
         _batteryFill.fillAmount = fillAmount;
-        Color color = _highColor;
-        if (fillAmount < 0.25f)
+        //Color color = _highColor;
+        if (fillAmount > 0.5f)
         {
-            color = _lowColor;
+            _batteryFill.color = _highColor;
+        }
+        else if (fillAmount < 0.25f)
+        {
+            _batteryFill.color = _lowColor;
         }
         else if (fillAmount > 0.25f && fillAmount < 0.5f)
         {
-            _batteryFill.color = color;
+            _batteryFill.color = _mediumColor;
         }
     }
 }
